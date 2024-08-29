@@ -10,6 +10,7 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  // storybook 화면에서 controls로 띄워줄 아이들
   argTypes: {
     isSelected: Boolean,
     isLoading: Boolean,
@@ -28,7 +29,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
     children: "Button",

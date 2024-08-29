@@ -1,0 +1,24 @@
+/* 버튼의 기본적인 스타일 */
+.btn {
+  /* layout */
+  padding: var(--btn-padding, 10px 20px);
+
+  /* border */
+  border-width: 0.1rem;
+  border-color: var(--btn-border-color);
+  border-style: solid;
+  border-radius: 0.4rem;
+
+  /* color */
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+
+  /* else */
+  cursor: pointer;
+}
+
+/* 특수 상태에 대한 스타일 변화 */
+.btn[disabled] {
+  opacity: 50%;
+  cursor: not-allowed;
+}

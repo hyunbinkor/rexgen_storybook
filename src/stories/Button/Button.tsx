@@ -1,6 +1,8 @@
 import { btnVariant, btnSize, btnColor } from "../../Types";
 import React from "react";
 import { ReactNode } from "react";
+import useButtonColorStyle from "./useButtonColorStyle";
+import useButtonSizeStyle from "./useButtonSizeStyle";
 
 export interface ButtonProps {
   /**
@@ -55,10 +57,6 @@ export interface ButtonProps {
    * 텍스트 뒤쪽으로 자리할 아이콘 요소
    */
   afterIcon?: ReactNode;
-  /**
-   * 색상과 크기 요소의 모체가 될 스타일시트 -> 적용 방식 결정 필요
-   */
-  // styleSheet?: 
 }
 
 /**
@@ -79,28 +77,33 @@ export const Button = ({
   beforeIcon,
   afterIcon,
 }: ButtonProps) => {
+  /**
+   * 현재는 내부 디자인 시스템이 없는 상황이기 때문에 간단한 구현에 초점을 두고
+   * loading 혹은 disabled의 경우의 디자인을 별도로 두지 않고 opacity만을
+   * CSS로 간단하게 조정하는 방식을 채택하였습니다.
+   * 
+   * 다만, 후에 이를 조정해야 할 필요성이 생긴다면 특수 상태 플래그를 CSS에 넘기는 대신
+   * style 조정 hook에 편입시켜 고도화하는 방식을 택할 수 있겠습니다.
+   */  
 
-  // classlist로 css와 접점 형성
-  const classList = [
-    className,
-    `btn-${variant}`,
-    `btn-${size}`,
-    `btn-${color}`,
-    `${fullWidth ? 'btn-fullwidth' : undefined}`
-  ];
+  // 기본 상태의 스타일 관련 hook 호출
+  const colorStyle = useButtonColorStyle({variant, color, isSelected});
+  const sizeStyle = useButtonSizeStyle({ fullWidth });
 
+  // 특수 상태 플래그는 컴포넌트에 넘겨서 css 파일에서 적용
   return (
     <button
-      className={classList.join(' ')}
+      className={className}
       onClick={onClick}
       onMouseOver={onMouseOver}
       data-is-selected={isSelected}
       data-is-loading={isLoading}
       data-is-disabled={isDisabled}
       disabled={isLoading || isDisabled}
+      style={{...colorStyle, ...sizeStyle}}
     >
       {beforeIcon && <span className="icon-before">{beforeIcon}</span>}
-      {children}
+      {/* {isLoading ? 로딩 아이콘 : */children}
       {afterIcon && <span className="icon-after">{afterIcon}</span>}
     </button>
   );
