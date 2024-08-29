@@ -1,7 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { useEffect } from "react";
 import { globalTypes } from "./globalTypes";
-import Decorator from "./Decorator";
+import withThemeDecorator from "./withThemeDecorator";
 
 const preview: Preview = {
   parameters: {
@@ -13,7 +13,7 @@ const preview: Preview = {
     },
   },
   globalTypes,
-  decorators: [Decorator],
+  decorators: [withThemeDecorator],
 };
 
 export default preview;
