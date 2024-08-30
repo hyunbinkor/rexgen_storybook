@@ -1,9 +1,13 @@
-import { btnVariant, btnSize, btnColor } from "../../Types";
+import { btnVariant, btnSize, btnColor } from "./buttonTypes";
 import React from "react";
 import { ReactNode } from "react";
 import useButtonColorStyle from "./useButtonColorStyle";
 import useButtonSizeStyle from "./useButtonSizeStyle";
+import "./Button.css";
 
+/** 
+ * 버튼 컴포넌트에 넘겨줄 props interface 지정
+*/
 export interface ButtonProps {
   /**
    * 텍스트 혹은 링크 등으로 버튼에 표시될 자식 요소
@@ -60,7 +64,22 @@ export interface ButtonProps {
 }
 
 /**
- * Primary UI component for user interaction
+ * 버튼 태그로 넘겨줄 style 객체 interface 지정 -> 조건부 변수명으로 전체 통일도 가능
+ */
+interface ButtonCSSProperties extends React.CSSProperties {
+  "--btn-bg-color": string;
+  "--btn-text-color": string;
+  "--btn-border-color": string;
+  "--btn-width": string;
+  "--btn-height": string;
+  "--btn-font-size": string;
+  "--btn-padding-horizantal": string;
+  "--btn-padding-vertical": string;
+}
+
+
+/**
+ * 버튼 컴포넌트
  */
 export const Button = ({
   children,
@@ -87,20 +106,22 @@ export const Button = ({
    */  
 
   // 기본 상태의 스타일 관련 hook 호출
-  const colorStyle = useButtonColorStyle({variant, color, isSelected});
-  const sizeStyle = useButtonSizeStyle({ fullWidth });
+  const colorStyle = useButtonColorStyle({ variant, color, isSelected });
+  const sizeStyle = useButtonSizeStyle({ fullWidth, size });
+
+  const style: ButtonCSSProperties = { ...colorStyle, ...sizeStyle };
 
   // 특수 상태 플래그는 컴포넌트에 넘겨서 css 파일에서 적용
   return (
     <button
-      className={className}
+      className={[className, "btn"].join(' ')}
       onClick={onClick}
       onMouseOver={onMouseOver}
       data-is-selected={isSelected}
       data-is-loading={isLoading}
       data-is-disabled={isDisabled}
       disabled={isLoading || isDisabled}
-      style={{...colorStyle, ...sizeStyle}}
+      style={style}
     >
       {beforeIcon && <span className="icon-before">{beforeIcon}</span>}
       {/* {isLoading ? 로딩 아이콘 : */children}
