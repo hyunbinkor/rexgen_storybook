@@ -64,7 +64,7 @@ export interface ButtonProps {
 }
 
 /**
- * 버튼 태그로 넘겨줄 style 객체 interface 지정 -> 조건부 변수명으로 전체 통일도 가능
+ * button 태그로 넘겨줄 style 객체 interface 지정
  */
 interface ButtonCSSProperties extends React.CSSProperties {
   "--btn-bg-color": string;
@@ -75,6 +75,7 @@ interface ButtonCSSProperties extends React.CSSProperties {
   "--btn-font-size": string;
   "--btn-padding-horizantal": string;
   "--btn-padding-vertical": string;
+  "--btn-gap-horizantal": string;
 }
 
 
