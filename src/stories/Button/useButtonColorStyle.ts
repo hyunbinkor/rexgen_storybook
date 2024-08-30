@@ -23,14 +23,14 @@ const useButtonColorStyle = ({
   // variant가 contained인 경우
   switch (variant) {
     case "contained":
-      bgColor = themeColors.primary.strong;
+      bgColor = themeColors[color].strong;
       textColor = themeColors.white;
-      borderColor = themeColors.primary.strong;
+      borderColor = themeColors[color].strong;
       break;
     case "text":
-      bgColor = isSelected ? themeColors.primary.moderate : "transparent";
-      textColor = isSelected ? themeColors.white : themeColors.primary.strong;
-      borderColor = isSelected ? themeColors.primary.moderate : "transparent";
+      bgColor = isSelected ? themeColors[color].moderate : "transparent";
+      textColor = isSelected ? themeColors.white : themeColors[color].strong;
+      borderColor = isSelected ? themeColors[color].moderate : "transparent";
       break;
   }
 
