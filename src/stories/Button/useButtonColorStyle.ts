@@ -1,4 +1,4 @@
-import { btnColor, btnVariant } from "@/Types";
+import { btnColor, btnVariant } from "./buttonTypes";
 import { useTheme } from "../../../.storybook/ThemeContext";
 
 interface ButtonColorProps {
