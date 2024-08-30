@@ -1,4 +1,4 @@
-import { btnVariant, btnSize, btnColor } from "../../Types";
+import { btnVariant, btnSize, btnColor } from "../Button/buttonTypes";
 import React from "react";
 import { ReactNode } from "react";
 
