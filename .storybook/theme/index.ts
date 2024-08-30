@@ -23,3 +23,40 @@ const theme = {
 };
 
 export default theme;
+
+export type themeColorType = "green" | "blue" | "violet";
+export type darkModeType = "light" | "dark";
+export type themeType = {
+  primary: {
+    weak: string;
+    moderate: string;
+    strong: string;
+  };
+  secondary: {
+    weak: string;
+    moderate: string;
+    strong: string;
+  };
+  success: {
+    weak: string;
+    moderate: string;
+    strong: string;
+  };
+  warning: {
+    weak: string;
+    moderate: string;
+    strong: string;
+  };
+  danger: {
+    weak: string;
+    moderate: string;
+    strong: string;
+  };
+  grayscale: {
+    weak: string;
+    moderate: string;
+    strong: string;
+  };
+  white: string;
+  black: string;
+};
