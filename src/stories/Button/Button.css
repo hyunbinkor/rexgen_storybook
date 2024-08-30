@@ -1,10 +1,10 @@
 /* 버튼의 기본적인 스타일 */
 .btn {
   /* layout */
-  padding: var(--btn-padding, 10px 20px);
+  padding: var(--btn-padding-vertical) var(--btn-padding-horizantal);
 
   /* border */
-  border-width: 0.1rem;
+  border-width: 1px;
   border-color: var(--btn-border-color);
   border-style: solid;
   border-radius: 0.4rem;
