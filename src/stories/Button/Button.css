@@ -1,6 +1,14 @@
 /* 버튼의 기본적인 스타일 */
 .btn {
+  /* display */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   /* layout */
+  font-size: var(--btn-font-size);
+  height: var(--btn-height);
+  width: var(--btn-width);
   padding: var(--btn-padding-vertical) var(--btn-padding-horizantal);
 
   /* border */
