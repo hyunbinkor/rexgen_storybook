@@ -15,9 +15,18 @@ const meta = {
     isSelected: Boolean,
     isLoading: Boolean,
     isDisabled: Boolean,
-    variant: btnVariant,
-    size: btnSize,
-    color: btnColor,
+    variant: {
+      options: btnVariant,
+      control: { type: "inline-radio" },
+    },
+    size: {
+      options: btnSize,
+      control: { type: "inline-radio" },
+    },
+    color: {
+      options: btnColor,
+      control: { type: "inline-radio" },
+    },
   },
   // 더미 함수로 대체한 액션
   args: {
