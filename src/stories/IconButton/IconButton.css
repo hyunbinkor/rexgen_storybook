@@ -1,0 +1,30 @@
+/* 버튼의 기본적인 스타일 */
+.iconBtn {
+  /* display */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* layout */
+  font-size: var(--iconBtn-font-size);
+  height: var(--iconBtn-height);
+  width: var(--iconBtn-width);
+
+  /* border */
+  border-width: 1px;
+  border-color: var(--iconBtn-border-color);
+  border-style: solid;
+  border-radius: 50%;
+  /* color */
+  background-color: var(--iconBtn-bg-color);
+  color: var(--iconBtn-text-color);
+
+  /* else */
+  cursor: pointer;
+}
+
+/* 특수 상태에 대한 스타일 변화 */
+.iconBtn[disabled] {
+  opacity: 50%;
+  cursor: not-allowed;
+}
