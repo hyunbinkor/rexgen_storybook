@@ -4,6 +4,8 @@ import { ReactNode } from "react";
 import useButtonColorStyle from "./useButtonColorStyle";
 import useButtonSizeStyle from "./useButtonSizeStyle";
 import "./Button.css";
+import { iconType } from "../Icon/iconTypes";
+import { Icon } from "../Icon/Icon";
 
 /** 
  * 버튼 컴포넌트에 넘겨줄 props interface 지정
@@ -56,11 +58,11 @@ export interface ButtonProps {
   /**
    * 텍스트 앞쪽으로 자리할 아이콘 요소
    */
-  beforeIcon?: ReactNode;
+  beforeIcon?: iconType;
   /**
    * 텍스트 뒤쪽으로 자리할 아이콘 요소
    */
-  afterIcon?: ReactNode;
+  afterIcon?: iconType;
 }
 
 /**
@@ -109,7 +111,6 @@ export const Button = ({
   // 기본 상태의 스타일 관련 hook 호출
   const colorStyle = useButtonColorStyle({ variant, color, isSelected });
   const sizeStyle = useButtonSizeStyle({ fullWidth, size });
-
   const style: ButtonCSSProperties = { ...colorStyle, ...sizeStyle };
 
   // 특수 상태 플래그는 컴포넌트에 넘겨서 css 파일에서 적용
@@ -124,9 +125,9 @@ export const Button = ({
       disabled={isLoading || isDisabled}
       style={style}
     >
-      {beforeIcon && <span className="icon-before">{beforeIcon}</span>}
-      {/* {isLoading ? 로딩 아이콘 : */ children}
-      {afterIcon && <span className="icon-after">{afterIcon}</span>}
+      {beforeIcon && <Icon icon={beforeIcon} color={colorStyle["--btn-text-color"]} size={sizeStyle["--btn-font-size"]}/>}
+      {isLoading ? <Icon icon={"loading"} color={colorStyle["--btn-text-color"]} size={sizeStyle["--btn-font-size"]} /> : children}
+      {afterIcon && <Icon icon={afterIcon} />}
     </button>
   );
 };
