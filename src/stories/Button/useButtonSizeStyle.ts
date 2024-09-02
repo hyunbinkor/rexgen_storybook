@@ -20,7 +20,6 @@ const useButtonSizeStyle = ({ fullWidth, size }: ButtonSizeProps) => {
   const height: string = `${parameter * 3}rem`;
   const fontSize: string = `${parameter * 2}rem`;
   const paddingHorizantal: string = `${parameter * 0.75}rem`;
-  const paddingVertical: string = `${parameter * 0.5}rem`;
   const gapHorizantal: string = `${parameter * 0.5}rem`;
 
   return {
@@ -28,7 +27,6 @@ const useButtonSizeStyle = ({ fullWidth, size }: ButtonSizeProps) => {
     "--btn-height": height,
     "--btn-font-size": fontSize,
     "--btn-padding-horizantal": paddingHorizantal,
-    "--btn-padding-vertical": paddingVertical,
     "--btn-gap-horizantal": gapHorizantal,
   };
 };

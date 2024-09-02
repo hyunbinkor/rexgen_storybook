@@ -9,7 +9,8 @@
   font-size: var(--btn-font-size);
   height: var(--btn-height);
   width: var(--btn-width);
-  padding: var(--btn-padding-vertical) var(--btn-padding-horizantal);
+  padding-left: var(--btn-padding-horizantal);
+  padding-right: var(--btn-padding-horizantal);
 
   /* border */
   border-width: 1px;

@@ -1,9 +1,11 @@
-import { btnVariant, btnSize, btnColor } from "./buttonTypes";
 import React from "react";
 import { ReactNode } from "react";
+
+import { btnVariant, btnSize, btnColor } from "./buttonTypes";
 import useButtonColorStyle from "./useButtonColorStyle";
 import useButtonSizeStyle from "./useButtonSizeStyle";
 import "./Button.css";
+
 import { iconType } from "../Icon/iconTypes";
 import { Icon } from "../Icon/Icon";
 
@@ -76,7 +78,6 @@ interface ButtonCSSProperties extends React.CSSProperties {
   "--btn-height": string;
   "--btn-font-size": string;
   "--btn-padding-horizantal": string;
-  "--btn-padding-vertical": string;
   "--btn-gap-horizantal": string;
 }
 
@@ -106,7 +107,7 @@ export const Button = ({
    * 
    * 다만, 후에 이를 조정해야 할 필요성이 생긴다면 특수 상태 플래그를 CSS에 넘기는 대신
    * style 조정 hook에 편입시켜 고도화하는 방식을 택할 수 있겠습니다.
-   */  
+   */
 
   // 기본 상태의 스타일 관련 hook 호출
   const colorStyle = useButtonColorStyle({ variant, color, isSelected });
