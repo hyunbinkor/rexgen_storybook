@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { Button } from "./Button";
 import { btnVariant, btnSize, btnColor } from "./buttonTypes";
+import { Icon } from "../Icon/Icon";
 
 const meta = {
   title: "Button",
@@ -38,8 +39,15 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const DefaultButton: Story = {
   args: {
     children: "Button",
+  },
+};
+
+export const ButtonWithIcon: Story = {
+  args: {
+    children: "Dashboard",
+    beforeIcon: "dashboard",
   },
 };
