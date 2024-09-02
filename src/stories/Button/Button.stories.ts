@@ -51,3 +51,17 @@ export const ButtonWithIcon: Story = {
     beforeIcon: "dashboard",
   },
 };
+
+export const LoadingButton: Story = {
+  args: {
+    children: "loading",
+    isLoading: true,
+  },
+};
+
+export const DisabledButton: Story = {
+  args: {
+    children: "disabled",
+    isDisabled: true,
+  },
+};
