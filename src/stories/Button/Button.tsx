@@ -1,5 +1,4 @@
-import React from "react";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 import { btnVariant, btnSize, btnColor } from "./buttonTypes";
 import useButtonColorStyle from "./useButtonColorStyle";
