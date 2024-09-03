@@ -1,0 +1,59 @@
+/* 스위치의 기본적인 스타일*/
+
+/* 스위치와 라벨을 아우르는 컨테이너 display 설정 */
+.switch-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* layout */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: var(--switch-width);
+  height: var(--switch-height);
+}
+
+/* 원래 있는 input을 숨김 처리 */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* slider container layout */
+.switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--switch-bg-color);
+  transition: 0.4s;
+  border-radius: var(--switch-border-radius);
+}
+
+/* slider layout */
+.switch-slider:before {
+  position: absolute;
+  content: "";
+  height: var(--switch-slider-size);
+  width: var(--switch-slider-size);
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--switch-slider-color);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* checked -> slider container */
+input:checked+.switch-slider {
+  background-color: var(--switch-bg-checked-color);
+}
+
+/* checked -> slider */
+input:checked+.switch-slider:before {
+  transform: translateX(var(--switch-translate-distance));
+}
