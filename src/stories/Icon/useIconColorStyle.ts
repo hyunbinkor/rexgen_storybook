@@ -10,19 +10,32 @@ const useIconColorStyle = ({ color }: IconColorProps) => {
   // 전체 테마 색상 불러오기
   const themeColors = useTheme();
 
-  let fillColor: string = "";
-
-  if (isIconColor(color)) {
-    if (color === "white" || color === "black") {
-      fillColor = themeColors[color];
-    } else {
-      fillColor = themeColors[color].strong;
-    }
-  } else fillColor = color;
+  const colors: Record<iconColor, { color: string; fill: string }> = {
+    primary: {
+      color: themeColors.primary.strong,
+      fill: themeColors.primary.strong,
+    },
+    secondary: {
+      color: themeColors.secondary.strong,
+      fill: themeColors.secondary.strong,
+    },
+    grayscale: {
+      color: themeColors.grayscale.strong,
+      fill: themeColors.grayscale.strong,
+    },
+    black: {
+      color: themeColors.black,
+      fill: themeColors.black,
+    },
+    white: {
+      color: themeColors.white,
+      fill: themeColors.white,
+    },
+  };
 
   return {
-    "--icon-color": fillColor,
-    "--icon-fill": fillColor,
+    "--icon-color": isIconColor(color) ? colors[color].color : color,
+    "--icon-fill": isIconColor(color) ? colors[color].fill : color,
   };
 };
 

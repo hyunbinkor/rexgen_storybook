@@ -10,29 +10,71 @@ const useIconButtonColorStyle = ({ variant, color }: IconButtonColorProps) => {
   // 전체 테마 색상 불러오기
   const themeColors = useTheme();
 
-  // 각 변수의 type 지정
-  let bgColor: string = "";
-  let iconColor: string = "";
-  let borderColor: string = "";
-
-  // variant가 contained인 경우
-  switch (variant) {
-    case "contained":
-      bgColor = themeColors[color].strong;
-      iconColor = themeColors.white;
-      borderColor = themeColors[color].strong;
-      break;
-    case "text":
-      bgColor = "transparent";
-      iconColor = themeColors[color].strong;
-      borderColor = "transparent";
-      break;
-  }
+  // colors 객체 생성
+  const colors: Record<
+    iconBtnVariant,
+    Record<iconBtnColor, { bg: string; icon: string; border: string }>
+  > = {
+    contained: {
+      primary: {
+        bg: themeColors.primary.strong,
+        icon: themeColors.white,
+        border: themeColors.primary.strong,
+      },
+      secondary: {
+        bg: themeColors.secondary.strong,
+        icon: themeColors.white,
+        border: themeColors.secondary.strong,
+      },
+      success: {
+        bg: themeColors.success.strong,
+        icon: themeColors.white,
+        border: themeColors.success.strong,
+      },
+      warning: {
+        bg: themeColors.warning.strong,
+        icon: themeColors.white,
+        border: themeColors.warning.strong,
+      },
+      danger: {
+        bg: themeColors.danger.strong,
+        icon: themeColors.white,
+        border: themeColors.danger.strong,
+      },
+    },
+    text: {
+      primary: {
+        bg: "transparent",
+        icon: themeColors.primary.strong,
+        border: "transparent",
+      },
+      secondary: {
+        bg: "transparent",
+        icon: themeColors.secondary.strong,
+        border: "transparent",
+      },
+      success: {
+        bg: "transparent",
+        icon: themeColors.success.strong,
+        border: "transparent",
+      },
+      warning: {
+        bg: "transparent",
+        icon: themeColors.warning.strong,
+        border: "transparent",
+      },
+      danger: {
+        bg: "transparent",
+        icon: themeColors.danger.strong,
+        border: "transparent",
+      },
+    },
+  };
 
   return {
-    "--iconBtn-bg-color": bgColor,
-    "--iconBtn-icon-color": iconColor,
-    "--iconBtn-border-color": borderColor,
+    "--iconBtn-bg-color": colors[variant][color].bg,
+    "--iconBtn-icon-color": colors[variant][color].icon,
+    "--iconBtn-border-color": colors[variant][color].border,
   };
 };
 

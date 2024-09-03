@@ -1,7 +1,7 @@
 import { btnSize } from "./buttonTypes";
 
 interface ButtonSizeProps {
-  fullWidth: Boolean;
+  fullWidth: boolean;
   size: btnSize;
 }
 
@@ -11,23 +11,42 @@ const useButtonSizeStyle = ({ fullWidth, size }: ButtonSizeProps) => {
    */
   const width: string = fullWidth ? "100%" : "auto";
 
-  /**
-   * rem으로 나타내는 파트별 사이즈
-   */
-  // size로 매개변수 설정해서 각 부분 길이 설정
-  const parameter = size === "small" ? 0.8 : size === "medium" ? 1 : 1.2;
-
-  const height: string = `${parameter * 3}rem`;
-  const fontSize: string = `${parameter * 2}rem`;
-  const paddingHorizantal: string = `${parameter * 0.75}rem`;
-  const gapHorizantal: string = `${parameter * 0.5}rem`;
+  // sizes 객체 생성
+  const sizes: Record<
+    btnSize,
+    {
+      height: string;
+      fontSize: string;
+      padding: string;
+      gap: string;
+    }
+  > = {
+    small: {
+      height: "2.4rem",
+      fontSize: "1.6rem",
+      padding: "0.6rem",
+      gap: "0.4rem",
+    },
+    medium: {
+      height: "3rem",
+      fontSize: "2rem",
+      padding: "0.75rem",
+      gap: "0.5rem",
+    },
+    large: {
+      height: "3.6rem",
+      fontSize: "2.4rem",
+      padding: "0.9rem",
+      gap: "0.6rem",
+    },
+  };
 
   return {
     "--btn-width": width,
-    "--btn-height": height,
-    "--btn-font-size": fontSize,
-    "--btn-padding-horizantal": paddingHorizantal,
-    "--btn-gap-horizantal": gapHorizantal,
+    "--btn-height": sizes[size].height,
+    "--btn-font-size": sizes[size].fontSize,
+    "--btn-padding-horizantal": sizes[size].padding,
+    "--btn-gap-horizantal": sizes[size].gap,
   };
 };
 

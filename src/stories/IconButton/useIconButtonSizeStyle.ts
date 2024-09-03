@@ -5,20 +5,36 @@ interface ButtonSizeProps {
 }
 
 const useIconButtonSizeStyle = ({ size }: ButtonSizeProps) => {
-  /**
-   * rem으로 나타내는 파트별 사이즈
-   */
-  // size로 매개변수 설정해서 각 부분 길이 설정
-  const parameter = size === "small" ? 0.8 : size === "medium" ? 1 : 1.2;
-
-  const width: string = `${parameter * 3}rem`;
-  const height: string = `${parameter * 3}rem`;
-  const fontSize: string = `${parameter * 2}rem`;
+  // sizes 객체 생성
+  const sizes: Record<
+    iconBtnSize,
+    {
+      width: string;
+      height: string;
+      fontSize: string;
+    }
+  > = {
+    small: {
+      width: "2.4rem",
+      height: "2.4rem",
+      fontSize: "1.6rem",
+    },
+    medium: {
+      width: "3rem",
+      height: "3rem",
+      fontSize: "2rem",
+    },
+    large: {
+      width: "3.6rem",
+      height: "3.6rem",
+      fontSize: "2.4rem",
+    },
+  };
 
   return {
-    "--iconBtn-width": width,
-    "--iconBtn-height": height,
-    "--iconBtn-font-size": fontSize,
+    "--iconBtn-width": sizes[size].width,
+    "--iconBtn-height": sizes[size].height,
+    "--iconBtn-font-size": sizes[size].fontSize,
   };
 };
 
