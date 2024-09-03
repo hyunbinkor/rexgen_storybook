@@ -11,6 +11,7 @@
   width: var(--btn-width);
   padding-left: var(--btn-padding-horizantal);
   padding-right: var(--btn-padding-horizantal);
+  gap: var(--btn-gap-horizantal);
 
   /* border */
   border-width: 1px;
