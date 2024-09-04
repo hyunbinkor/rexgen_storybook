@@ -2,8 +2,14 @@
   "name": "rexgen_storybook",
   "version": "1.0.0",
   "main": "index.tsx",
-  "repository": "git@github.com-gosqls:hyunbinkor/rexgen_storybook.git",
-  "author": "Hyunbin Jun <gosqlsz@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-gosqls:hyunbinkor/rexgen_storybook.git"
+  },
+  "author": {
+    "name": "Hyunbin Jun",
+    "email": "gosqlsz@gmail.com"
+  },
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +17,8 @@
     "build": "webpack --config webpack.prod.js",
     "start": "webpack --config webpack.dev.js",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy": "node chromatic.js"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -32,6 +39,8 @@
     "@types/node": "^22.5.0",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
+    "chromatic": "^11.7.1",
+    "dotenv": "^16.4.5",
     "html-webpack-plugin": "^5.6.0",
     "storybook": "^8.2.9",
     "ts-loader": "^9.5.1",
