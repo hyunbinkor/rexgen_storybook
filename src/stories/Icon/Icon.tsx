@@ -38,6 +38,9 @@ interface IconCSSProperties extends React.CSSProperties {
   "--icon-height": string;
 }
 
+/**
+ * 아이콘 컴포넌트
+ */
 export const Icon = ({
   icon,
   role = "button",
