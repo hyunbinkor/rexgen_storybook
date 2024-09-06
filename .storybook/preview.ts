@@ -1,7 +1,7 @@
 import type { Preview } from "@storybook/react";
-import { useEffect } from "react";
 import { globalTypes } from "./globalTypes";
 import withThemeDecorator from "./withThemeDecorator";
+import withMantineDecorator from "./withMantineDecorator";
 
 const preview: Preview = {
   parameters: {
@@ -13,7 +13,7 @@ const preview: Preview = {
     },
   },
   globalTypes,
-  decorators: [withThemeDecorator],
+  decorators: [withThemeDecorator, withMantineDecorator],
 };
 
 export default preview;

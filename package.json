@@ -21,6 +21,9 @@
     "deploy": "node chromatic.js"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@mantine/core": "^7.12.2",
+    "@mantine/hooks": "^7.12.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
