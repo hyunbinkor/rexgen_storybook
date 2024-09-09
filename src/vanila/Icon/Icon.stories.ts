@@ -3,7 +3,7 @@ import { Icon } from "./Icon";
 import { iconColor, iconType } from "./iconTypes";
 
 const meta = {
-  title: "Icon",
+  title: "Vainila/Icon",
   component: Icon,
   parameters: {
     layout: "centered",

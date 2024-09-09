@@ -4,7 +4,7 @@ import { IconButton } from "./IconButton";
 import { iconBtnVariant, iconBtnSize, iconBtnColor } from "./iconButtonType";
 
 const meta = {
-  title: "IconButton",
+  title: "Vainila/IconButton",
   component: IconButton,
   parameters: {
     layout: "centered",

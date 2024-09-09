@@ -4,7 +4,7 @@ import { Button } from "./Button";
 import { btnVariant, btnSize, btnColor } from "./buttonTypes";
 
 const meta = {
-  title: "Button",
+  title: "Vainila/Button",
   component: Button,
   parameters: {
     layout: "centered",

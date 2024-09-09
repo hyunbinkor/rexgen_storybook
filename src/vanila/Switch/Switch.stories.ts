@@ -4,7 +4,7 @@ import { Switch } from "./Switch";
 import { switchColor, switchSize } from "./switchType";
 
 const meta = {
-  title: "Switch",
+  title: "Vainila/Switch",
   component: Switch,
   parameters: {
     layout: "centered",
