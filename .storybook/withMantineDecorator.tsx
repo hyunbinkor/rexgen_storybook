@@ -1,4 +1,5 @@
 import React from "react";
+import '@mantine/core/styles.css'
 import { Decorator } from "@storybook/react";
 import { MantineProvider } from "@mantine/core";
 import { theme } from "../src/theme";
